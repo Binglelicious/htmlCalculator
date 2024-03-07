@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <p>
+      Calculator
+    </p>
+    <p class="js-display"></p>
+    <!--This p is for buttons 1,2,3 and + -->
+    <p>
+    <button onclick="
+      updateCalculation('1');
+      ">1</button>
+
+    <button onclick="
+      updateCalculation('2');
+    ">2</button>
+
+    <button onclick="
+      updateCalculation('3');
+    ">3</button>
+
+    <button onclick="
+      updateCalculation(' + ');
+    ">+</button>
+  </p>
+    <!--THis p is for buttons 4,5,6 and - -->
+  <p>
+    <button onclick="
+      updateCalculation('4');
+      ">4</button>
+
+    <button onclick="
+      updateCalculation('5');
+      ">5</button>
+
+    <button onclick="
+      updateCalculation('6');
+      ">6</button>
+
+    <button onclick="
+      updateCalculation(' - ');
+      ">-</button>
+  </p>
+     <!--THis p is for buttons 7,8,9, and * -->
+  <p>
+    <button onclick="
+      updateCalculation('7');
+      ">7</button>
+    
+    <button onclick="
+      updateCalculation('8');
+     ">8</button>
+  
+    <button onclick="
+      updateCalculation('9');
+    ">9</button>
+
+  <button onclick="
+    updateCalculation(' * ');
+    ">*</button>
+  </p>
+    <!-- This p is for 0 . = and / -->
+  <P>
+    <button onclick="
+      updateCalculation('0');
+      ">0</button>
+
+    <button onclick="
+      updateCalculation('.');
+      ">.</button>
+
+    <button onclick="
+      calculation = eval(calculation);
+      document.querySelector('.js-display').innerHTML = `${calculation}`
+      localStorage.setItem('calculation', calculation);
+      ">=</button>
+
+    <button onclick="
+      updateCalculation(' / ');
+      ">/</button>
+  </P>
+    <!--This p is to reset the variable-->
+  <p>
+    <button onclick="
+    calculation = 0;
+    document.querySelector('.js-display')
+      .innerHTML = `${calculation}`
+    
+    localStorage.setItem('calculation', calculation)
+    ">Clear</button>
+  </p>
+    <script>
+      let calculation = localStorage.getItem('calculation') || '0';
+
+      document.querySelector('.js-display')
+        .innerHTML = `${calculation}`
+
+      function updateCalculation (value) {
+        calculation += value;
+        
+        document.querySelector('.js-display')
+        .innerHTML = `${calculation}`
+
+        localStorage.setItem('calculation', calculation);
+      }
+      
+    </script>
+  </body>
+ </html>
